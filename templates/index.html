@@ -1,0 +1,33 @@
+{% load static %}  
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images\favicon.png' %}" >
+    <link href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+    <title>Today's News</title>
+</head>
+<body style="background-color:burlywood;">
+    <div class="megatron" style="color:black">
+        <h1 style="text-align: center;">
+            Find the most recent news on our website.
+        </h1>
+    </div>
+    <div class="container" >
+        {% for new, des, i in mylist %} 
+            <img src="{{ i }}" alt="" style=" display:block;margin-left: auto; margin-right: auto;" > 
+            <div style="display: block;text-align: justify;margin-left: 65px;">
+                <h1>news:</h1> {{ new }} 
+                {{ value|linebreaks }} 
+                <h4>description:</h4>{{ des }} 
+                {{ value|linebreaks }} 
+                <br><br><br>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
